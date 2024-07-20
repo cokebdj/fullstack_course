@@ -118,6 +118,10 @@ flex-container {
 #hero > div > h2 {
   font-size: var(--rc-font-size-h1);
 }
+#hero > img {
+  width: 300px;
+  border-radius: var(--rc-radius-lg);
+}
 
 @media (max-width: 1040px) {
   #hero {
@@ -258,6 +262,8 @@ flex-container {
   padding: var(--rc-padding-xl);
   gap: var(--rc-gap-xl);
   background-color: var(--rc-bg-secondary);
+  flex-direction: row;
+  display: flex;
 }
 
 #footer > ul {
