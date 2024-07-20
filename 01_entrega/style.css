@@ -9,9 +9,9 @@
 
   /* Colors */
   --rc-color-white: #a8c0c7;
-  --rc-color-light-gray: #6888a6;
-  --rc-color-blue: #3b4a7d;
-  --rc-color-dark: #29335b;
+  --rc-color-light-gray: #83bebc;
+  --rc-color-blue: #539fae;
+  --rc-color-dark: #122e3d;
 
   /* Backgrounds */
   --rc-bg-primary: var(--rc-color-white);
@@ -70,8 +70,12 @@ flex-container {
 
 /* Header */
 #principal_header {
-  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   position: fixed;
+  align-content: space-around;
+  justify-content: space-evenly;
   width: 100%;
   z-index: 2;
   background-color: var(--rc-bg-primary);
@@ -82,7 +86,7 @@ flex-container {
 }
 
 #principal_header > nav > ul > li {
-  font-size: var(--rc-font-size-h3);
+  font-size: var(--rc-font-size-h4);
 }
 
 .menu {
@@ -108,7 +112,7 @@ flex-container {
 
 /* Hero Section */
 #hero {
-  padding-top: 200px;
+  padding-top: 220px;
   gap: var(--rc-gap-xl);
   display: flex;
   flex-wrap: wrap;
@@ -301,7 +305,7 @@ flex-container {
   justify-content: space-around;
   padding: var(--rc-padding-xl);
   gap: var(--rc-gap-xl);
-  background-color: var(--rc-bg-secondary);
+  background-color: var(--rc-bg-primary);
   flex-direction: row;
   display: flex;
 }
