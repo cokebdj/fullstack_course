@@ -104,8 +104,13 @@ flex-container {
 
 /* Hero Section */
 #hero {
-  padding-top: 150px;
+  padding-top: 200px;
   gap: var(--rc-gap-xl);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: space-around;
+  justify-content: space-evenly;
 }
 
 #hero > div {
@@ -115,9 +120,15 @@ flex-container {
   align-items: flex-start;
 }
 
-#hero > div > h2 {
+#hero > div > h1 {
   font-size: var(--rc-font-size-h1);
 }
+
+#hero > div > p {
+  font-size: var(--rc-font-size-h3);
+  opacity: 0.7;
+}
+
 #hero > img {
   width: 300px;
   border-radius: var(--rc-radius-lg);
@@ -159,10 +170,14 @@ flex-container {
   flex-direction: column;
   margin-top: var(--rc-margin-section);
   gap: var(--rc-gap-md);
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-evenly;
 }
 
 #companies > div {
-  width: 80%;
+  width: 90%;
   background-color: var(--rc-bg-secondary);
   border-radius: var(--rc-radius-lg);
   justify-content: space-around;
@@ -172,9 +187,8 @@ flex-container {
   justify-self: center;
 }
 
-#companies > h5 {
-  opacity: 0.5;
-  font-weight: 400;
+#companies > h2 {
+  font-size: var(--rc-font-size-h2);
   text-align: center;
 }
 
@@ -207,8 +221,17 @@ flex-container {
   margin-top: var(--rc-margin-section);
 }
 
+#testimonials > div {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-evenly;
+}
+
 #testimonials > h2 {
-  font-size: var(--rc-font-size-h3);
+  font-size: var(--rc-font-size-h2);
+  text-align: center;
 }
 
 .testimonial {
@@ -228,8 +251,14 @@ flex-container {
   margin: auto;
 }
 
-.testimonial > h4 {
+.testimonial > h3 {
   text-align: center;
+  font-size: var(--rc-font-size-h3);
+}
+
+.testimonial > p {
+  text-align: center;
+  font-size: var(--rc-font-size-h4);
 }
 
 @media (max-width: 700px) {
@@ -251,15 +280,8 @@ flex-container {
   }
 
   #testimonials > h2 {
-    font-size: var(--rc-font-size-h3);
+    font-size: var(--rc-font-size-h2);
   }
-}
-
-#companies > h5,
-.testimonial > p {
-  opacity: 0.5;
-  font-weight: 400;
-  text-align: center;
 }
 
 /* Footer */
