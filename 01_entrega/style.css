@@ -168,6 +168,8 @@ flex-container {
   justify-content: space-around;
   max-width: 680px;
   min-width: 340px;
+  display: flex;
+  justify-self: center;
 }
 
 #companies > h5 {
@@ -222,6 +224,12 @@ flex-container {
   width: 200px;
   border-radius: 100%;
   border: 2px solid var(--rc-bg-secondary);
+  display: block;
+  margin: auto;
+}
+
+.testimonial > h4 {
+  text-align: center;
 }
 
 @media (max-width: 700px) {
