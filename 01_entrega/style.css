@@ -78,6 +78,10 @@ flex-container {
 }
 
 #principal_header > h1 {
+  font-size: var(--rc-font-size-h1);
+}
+
+#principal_header > nav > ul > li {
   font-size: var(--rc-font-size-h3);
 }
 
@@ -120,13 +124,16 @@ flex-container {
   align-items: flex-start;
 }
 
-#hero > div > h1 {
-  font-size: var(--rc-font-size-h1);
+#hero > div > h2 {
+  padding-top: var(--rc-padding-md);
+  font-size: var(--rc-font-size-h2);
 }
 
 #hero > div > p {
+  padding-top: var(--rc-padding-sm);
   font-size: var(--rc-font-size-h3);
   opacity: 0.7;
+  padding-bottom: var(--rc-padding-sm);
 }
 
 #hero > img {
@@ -227,6 +234,7 @@ flex-container {
   flex-direction: row;
   align-content: center;
   justify-content: space-evenly;
+  padding-top: var(--rc-padding-md);
 }
 
 #testimonials > h2 {
@@ -244,7 +252,7 @@ flex-container {
 }
 
 .testimonial > img {
-  width: 200px;
+  height: 300px;
   border-radius: 100%;
   border: 2px solid var(--rc-bg-secondary);
   display: block;
@@ -254,11 +262,13 @@ flex-container {
 .testimonial > h3 {
   text-align: center;
   font-size: var(--rc-font-size-h3);
+  padding-top: var(--rc-padding-md);
 }
 
 .testimonial > p {
   text-align: center;
   font-size: var(--rc-font-size-h4);
+  padding-top: var(--rc-padding-sm);
 }
 
 @media (max-width: 700px) {
