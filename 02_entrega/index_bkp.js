@@ -200,7 +200,7 @@ const applySelection = (list, color, pokemon, sort) => {
   }
 
   if (ordPrice.includes(sort)) {
-    list2 = sortList(list1, 'price', sort)
+    list2 = sortList(list1, 'stars', sort)
   } else {
     list2 = list1.slice()
   }
@@ -215,16 +215,92 @@ const applySelection = (list, color, pokemon, sort) => {
   }
 }
 
+// Restart values
+const restartFilters = () => {
+  selectColor = ''
+  selectPokemon = ''
+  selectOrder = ''
+  zapFilt = zap.slice()
+  colorsUqMod = colorsUq.slice()
+  pokemonsUqMod = pokemonUq.slice()
+}
+// Create selectors
+const createSelectors = (filters, list, label_case, variable) => {
+  // Generate label
+  let label = document.createElement('label')
+  label.textContent = label_case
+  // Generate selector
+  const selectModel = document.createElement('select')
+  selectModel.innerHTML = ''
+  for (const elem of list) {
+    const option = document.createElement('option')
+    option.value = elem
+    option.textContent = elem
+    selectModel.appendChild(option)
+  }
+  filters.appendChild(label)
+  filters.appendChild(selectModel)
+  switch (variable) {
+    case 'color':
+      selectModel.addEventListener('change', (event) => {
+        ;(selectColor = event.target.value),
+          (zapFilt = applySelection(
+            zap,
+            selectColor,
+            selectPokemon,
+            selectOrder
+          )),
+          printZapas(zapFilt, suggestion)
+      })
+    case 'pokemon':
+      selectModel.addEventListener('change', (event) => {
+        ;(selectPokemon = event.target.value),
+          (zapFilt = applySelection(
+            zap,
+            selectColor,
+            selectPokemon,
+            selectOrder
+          )),
+          printZapas(zapFilt, suggestion)
+      })
+    case 'price_order':
+      selectModel.addEventListener('change', (event) => {
+        ;(selectOrder = event.target.value),
+          (zapFilt = applySelection(
+            zap,
+            selectColor,
+            selectPokemon,
+            selectOrder
+          )),
+          printZapas(zapFilt, suggestion)
+      })
+    default:
+      console.log('Not available')
+  }
+}
+
+// Create reset button
+const createResetButton = (divFilters) => {
+  let button = document.createElement('button')
+  button.innerHTML = 'Refrescar filtros'
+  divFilters.appendChild(button)
+  button.addEventListener('click', (event) => {
+    restartFilters, printZapas(zap)
+  })
+  console.log('CLICK')
+}
+
 // Print results
 const printZapas = (zapas, suggestion = false) => {
   const divZapas = document.querySelector('#zapatillas')
   divZapas.innerHTML = ''
   console.log('estoy pintando')
   const divSug = document.querySelector('#sugerencia')
+  divSug.className = 'flex-container'
 
   if (suggestion) {
     divSug.innerHTML =
-      'Esto es una sugerencia debido a que no hay resultados para los valores seleccionados en los filtros.'
+      'This is a suggestion since there were no items to show for your selection'
   } else {
     divSug.innerHTML = ''
   }
@@ -262,119 +338,23 @@ const printZapas = (zapas, suggestion = false) => {
   }
 }
 
-// Restart values
-const restartFilters = () => {
-  selectColor = ''
-  selectPokemon = ''
-  selectOrder = ''
-  document.getElementById('selectColor').options[0].selected = true
-  document.getElementById('selectPokemon').options[0].selected = true
-  document.getElementById('selectOrder').options[0].selected = true
-  printZapas(zap)
-}
-
-// Create reset button
-const createResetButton = (divFilters) => {
-  let button = document.createElement('button')
-  button.innerHTML = 'Refrescar filtros'
-  divFilters.appendChild(button)
-  button.addEventListener('click', restartFilters)
-  console.log('CLICK')
-}
-
 // Original values
 const colorsUq = extractUqListList(zap, 'colors')
 const pokemonsUq = extractUqList(zap, 'pokemon')
-const ordPrice = ['Ascendente', 'Descendente']
+const ordPrice = ['Ascendente', 'Descendente', 'Ninguno']
 
 // Initialize
 let selectColor = ''
 let selectPokemon = ''
 let selectOrder = ''
 let suggestion = false
-let zapFilt = zap.slice()
+
+// Initialized charts
+printZapas(zap)
 
 // Initialized filters
 const divFilters = document.querySelector('#filtros')
-
-// Generate label
-let labelColors = document.createElement('label')
-labelColors.textContent = 'Selecciona color:'
-let labelPokemons = document.createElement('label')
-labelPokemons.textContent = 'Selecciona pokemon:'
-let labelOrder = document.createElement('label')
-labelOrder.textContent = 'Selecciona un orden para el precio:'
-
-// Empty option
-const emptyColor = document.createElement('option')
-emptyColor.value = ''
-emptyColor.selected = true
-const emptyPokemon = document.createElement('option')
-emptyPokemon.value = ''
-emptyPokemon.selected = true
-const emptyOrder = document.createElement('option')
-emptyOrder.value = ''
-emptyOrder.selected = true
-
-// Generate selector
-let selectModelColors = document.createElement('select')
-selectModelColors.innerHTML = ''
-selectModelColors.id = 'selectColor'
-selectModelColors.appendChild(emptyColor)
-let selectModelPokemons = document.createElement('select')
-selectModelPokemons.innerHTML = ''
-selectModelPokemons.id = 'selectPokemon'
-selectModelPokemons.appendChild(emptyPokemon)
-let selectModelOrder = document.createElement('select')
-selectModelOrder.innerHTML = ''
-selectModelOrder.id = 'selectOrder'
-selectModelOrder.appendChild(emptyOrder)
-
-// Fill options
-for (const elem of colorsUq) {
-  const option = document.createElement('option')
-  option.value = elem
-  option.textContent = elem
-  selectModelColors.appendChild(option)
-}
-for (const elem of pokemonsUq) {
-  const option = document.createElement('option')
-  option.value = elem
-  option.textContent = elem
-  selectModelPokemons.appendChild(option)
-}
-for (const elem of ordPrice) {
-  const option = document.createElement('option')
-  option.value = elem
-  option.textContent = elem
-  selectModelOrder.appendChild(option)
-}
-
-// Add event listener
-selectModelColors.addEventListener('change', (event) => {
-  ;(selectColor = event.target.value),
-    (zapFilt = applySelection(zap, selectColor, selectPokemon, selectOrder)),
-    printZapas(zapFilt, suggestion)
-})
-selectModelPokemons.addEventListener('change', (event) => {
-  ;(selectPokemon = event.target.value),
-    (zapFilt = applySelection(zap, selectColor, selectPokemon, selectOrder)),
-    printZapas(zapFilt, suggestion)
-})
-selectModelOrder.addEventListener('change', (event) => {
-  ;(selectOrder = event.target.value),
-    (zapFilt = applySelection(zap, selectColor, selectPokemon, selectOrder)),
-    printZapas(zapFilt, suggestion)
-})
-
-// Add to div
-divFilters.appendChild(labelColors)
-divFilters.appendChild(selectModelColors)
-divFilters.appendChild(labelPokemons)
-divFilters.appendChild(selectModelPokemons)
-divFilters.appendChild(labelOrder)
-divFilters.appendChild(selectModelOrder)
-
-// Add reset
+createSelectors(divFilters, colorsUq, 'Selecciona color:', 'color')
+createSelectors(divFilters, pokemonsUq, 'Selecciona pokemon:', 'pokemon')
+createSelectors(divFilters, ordPrice, 'Selecciona un orden:', 'price_order')
 createResetButton(divFilters)
-printZapas(zap)

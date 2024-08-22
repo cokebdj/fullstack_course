@@ -94,6 +94,15 @@ body {
   border-radius: var(--rtc-br);
 }
 
+#filtros {
+  padding: var(--rtc-padding-l);
+}
+
+#sugerencia {
+  margin-bottom: var(--rtc-margin-section);
+  gap: var(--rtc-gap-xl);
+}
+
 .imgContainer {
   margin-top: var(--rtc-margin-m);
   width: 80%;
@@ -131,11 +140,6 @@ body {
 
 .rellena {
   background-color: var(--rtc-special-color-1);
-}
-
-#filtros {
-  height: 100px;
-  padding: var(--rtc-padding-l);
 }
 
 .colores {
