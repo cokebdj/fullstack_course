@@ -18,7 +18,18 @@ const searchPhotos = async (keyword) => {
     page: 1,
     perPage: 30
   })
-  return images
+  if (images.response.results.length < 1) {
+    window.alert('No results for the query, but here you have some cats :)')
+    const imagesCats = await unsplash.search.getPhotos({
+      query: 'cats',
+      page: 1,
+      perPage: 30
+    })
+
+    return imagesCats
+  } else {
+    return images
+  }
 }
 
 const printItems = (items) => {
@@ -42,8 +53,7 @@ const galleryListeners = async () => {
 const printTemplate = async () => {
   document.querySelector('main').innerHTML = galleryTemplate()
   galleryListeners()
-
-  const images = await searchPhotos('moon')
+  const images = await searchPhotos('variety')
   printItems(images.response.results)
 }
 
