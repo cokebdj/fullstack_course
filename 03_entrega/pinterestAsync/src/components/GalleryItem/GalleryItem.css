@@ -25,7 +25,7 @@
 
 .gallery-item .save-btn {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .gallery-item .links {
@@ -69,60 +69,20 @@
   align-items: center;
 }
 
+.gallery-item .user-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+}
+
 .gallery-item .full-link {
   width: 200px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
   color: black;
-}
-
-.gallery-item:nth-child(2) {
-  grid-column: span 2;
-}
-.gallery-item:nth-child(4) {
-  grid-row: span 2;
-}
-
-.gallery-item:nth-child(6) {
-  grid-column: span 2;
-}
-
-.gallery-item:nth-child(8) {
-  grid-row: span 2;
-}
-
-.gallery-item:nth-child(10) {
-  grid-column: span 2;
-}
-
-.gallery-item:nth-child(12) {
-  grid-row: span 2;
-}
-.gallery-item:nth-child(14) {
-  grid-column: span 2;
-}
-.gallery-item:nth-child(16) {
-  grid-row: span 2;
-}
-.gallery-item:nth-child(18) {
-  grid-column: span 2;
-}
-.gallery-item:nth-child(20) {
-  grid-row: span 2;
-}
-.gallery-item:nth-child(22) {
-  grid-column: span 2;
-}
-.gallery-item:nth-child(24) {
-  grid-row: span 2;
-}
-.gallery-item:nth-child(26) {
-  grid-column: span 2;
-}
-.gallery-item:nth-child(28) {
-  grid-row: span 2;
-}
-.gallery-item:nth-child(30) {
-  grid-column: span 2;
 }

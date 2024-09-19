@@ -3,7 +3,7 @@ import './Header.css'
 // HEADER
 const headerTemplate = () => {
   return `
-  <h1>I</h1>
+  <h1 id="pageIcon">I</h1>
   <input type="text" placeholder="Search" id="searchinput"/>
   <button id="searchbtn"><img src="/icons/search.svg" alt="Search icon"/></button>
   <button id="darkmodebtn"><img src="/icons/dark.svg" alt="Dark mode icon"/ id="darkmodeicon"></button>

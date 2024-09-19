@@ -13,9 +13,9 @@ export const cardTemplate = (item) => {
                 <a href=${item.urls.full} target="_blank" class="links-icon">
                     <img src="/icons/upload.svg" alt="Upload icon"/>
                 </a>
-                <a href="#null" class="links-icon">
-                    <img src="/icons/more.svg" alt="More icon"/>
-                </a>    
+                <a href="#null" class="user-icon">
+                <img src="${item.user.profile_image.small}" alt="User profile"/>
+            </a>    
             </div>
         </div>
     </div>

@@ -7,6 +7,7 @@ import { createApi } from 'unsplash-js'
 
 printHeaderTemplate()
 printFooterTemplate()
+const petitions = []
 
 const unsplash = createApi({
   accessKey: import.meta.env.VITE_ACCESS_KEY
@@ -28,6 +29,7 @@ const searchPhotos = async (keyword) => {
 
     return imagesCats
   } else {
+    petitions.push(keyword)
     return images
   }
 }
@@ -48,12 +50,22 @@ const galleryListeners = async () => {
     printItems(images.response.results)
     input.value = ''
   })
+  const pageIcon = document.querySelector('#pageIcon')
+  pageIcon.addEventListener('click', async () => {
+    const images = await searchPhotos(petitions[0])
+    printItems(images.response.results)
+    input.value = ''
+  })
 }
 
 const printTemplate = async () => {
   document.querySelector('main').innerHTML = galleryTemplate()
   galleryListeners()
   const images = await searchPhotos('variety')
+  console.log(images.response.results[0].user.name)
+  console.log(images.response.results[0].created_at)
+  console.log(images.response.results[0].likes)
+  console.log(images.response.results[0].user.total_photos)
   printItems(images.response.results)
 }
 
