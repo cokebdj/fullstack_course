@@ -1,0 +1,8 @@
+/* Skills STYLES */
+footer {
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary);
+}

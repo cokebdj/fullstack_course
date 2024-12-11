@@ -1,0 +1,13 @@
+:root {
+  --color-background: whitesmoke;
+  --primary: #1ad9e7;
+  --secondary: #953ad6;
+  --letter-primary: #000000;
+  --letter-secondary: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
