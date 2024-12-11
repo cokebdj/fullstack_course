@@ -8,16 +8,6 @@ header {
   gap: 1.5rem;
 }
 
-header > h1 {
-  background-color: var(--logo);
-  width: 30px;
-  height: 30px;
-  font-size: 1.5rem;
-  text-align: center;
-  border-radius: 50%;
-  color: var(--color-background);
-}
-
 header input {
   padding: 1rem 1.4rem;
   border-radius: 2rem;
@@ -42,12 +32,20 @@ header img {
   width: 28px;
 }
 
+header .pageIcon {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
 header button:hover {
   background-color: var(--secondary);
 }
 
 header .icon {
-  filter: contrast(30%);
+  display: flex;
+  border-radius: 50%;
+  text-align: center;
 }
 
 header .profileimg {
