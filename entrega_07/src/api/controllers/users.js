@@ -2,7 +2,7 @@ const User = require('../models/users')
 
 const getUsers = async (req, res, next) => {
   try {
-    const users = await User.find()
+    const users = await User.find().populate('classes').populate('subjects')
     return res.status(200).json(users)
   } catch (error) {
     return res.status(400).json('Error in request')
@@ -13,6 +13,8 @@ const getUserById = async (req, res, next) => {
   try {
     const { id } = req.params
     const user = await User.findById(id)
+      .populate('classes')
+      .populate('subjects')
     return res.status(200).json(user)
   } catch (error) {
     return res.status(400).json('Error in request')
@@ -23,6 +25,8 @@ const getUsersByRole = async (req, res, next) => {
   try {
     const { role } = req.params
     const Users = await User.find({ role })
+      .populate('classes')
+      .populate('subjects')
     return res.status(200).json(Users)
   } catch (error) {
     return res.status(400).json('Error en la solicitud')
