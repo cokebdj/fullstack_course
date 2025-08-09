@@ -9,9 +9,7 @@ const userSchema = new mongoose.Schema(
       enum: ['user', 'admin'],
       default: 'user'
     },
-    classes: [
-      { type: mongoose.Types.ObjectId, ref: 'classes', required: false }
-    ],
+    classes: { type: mongoose.Types.ObjectId, ref: 'classes', required: false },
     subjects: [
       { type: mongoose.Types.ObjectId, ref: 'subjects', required: false }
     ]
