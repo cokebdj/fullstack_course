@@ -21,5 +21,3 @@ app.all('/{*any}', (req, res, next) => {
 app.listen(3000, () => {
   console.log('Up and running at: http://localhost:3000')
 })
-
-//https://github.com/rockthecodebythepower/proyectos-clases/blob/master/11_noviembre/19_Proyecto_6_29_11_2023/index.js

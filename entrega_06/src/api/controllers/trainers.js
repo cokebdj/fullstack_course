@@ -35,7 +35,8 @@ const putTrainer = async (req, res, next) => {
     const oldTrainer = await Trainer.findById(id)
     const newTrainer = new Trainer(req.body)
     newTrainer._id = id
-    newTrainer.pokemons = [...oldTrainer.pokemons, ...req.body.pokemons]
+    const pokemonWithDuplicates = [...oldTrainer.pokemons, ...req.body.pokemons]
+    newTrainer.pokemons = [...new Set(pokemonWithDuplicates)]
     const trainerUpdated = await Trainer.findByIdAndUpdate(id, newTrainer, {
       new: true
     })
