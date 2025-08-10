@@ -1,3 +1,4 @@
+const { isAuth, isAdmin } = require('../../middlewares/auth')
 const {
   getClasses,
   getClassById,
@@ -8,10 +9,10 @@ const {
 
 const classesRouter = require('express').Router()
 
-classesRouter.get('/:id', getClassById)
-classesRouter.get('/', getClasses)
-classesRouter.post('/', postClass)
-classesRouter.put('/:id', putClass)
-classesRouter.delete('/:id', deleteClass)
+classesRouter.get('/:id', [isAuth], getClassById)
+classesRouter.get('/', [isAuth], getClasses)
+classesRouter.post('/', [isAdmin], postClass)
+classesRouter.put('/:id', [isAdmin], putClass)
+classesRouter.delete('/:id', [isAdmin], deleteClass)
 
 module.exports = classesRouter

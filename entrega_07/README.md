@@ -1,75 +1,109 @@
-# 📡 API Pokemon
+# 📡 API Colegio
 
-Esta API permite acceder a una base de datos de Pokemons y entrenadores con sus respectivos equipos de Pokemons.
+Esta API permite acceder a una base de datos de usuarios, clases y asignaturas
 
 ## 📋 Endpoints
 
-## Pokemon
+## Usuarios
 
-### 🔍 Obtener pokemons
+### Registro
 
-- **URL:** `/pokemons`
-- **Método:** `GET`
-- **Descripción:** Devuelve una lista de todos los Pokemon disponibles.
-
-### 🔍 Obtener pokemon por id
-
-- **URL:** `/pokemons/id/:id`
-- **Método:** `GET`
-- **Descripción:** Devuelve el Pokemon correspondiente al id facilitado.
-
-### 🔍 Obtener pokemons por tipo
-
-- **URL:** `/pokemons/type/:type`
-- **Método:** `GET`
-- **Descripción:** Devuelve una lista de todos los Pokemon disponibles con el tipo seleccionado.
-
-### 🔍 Incluir un pokemon nuevo
-
-- **URL:** `/pokemons`
+- **URL:** `/register`
 - **Método:** `POST`
-- **Descripción:** Genera un nuevo Pokemon en la base de datos.
+- **Acceso:** no logado
+- **Descripción:** Permite crear un usuario.
 
-### 🔍 Editar un pokemon existente
+### Inicio de sesión
 
-- **URL:** `/pokemons/:id`
-- **Método:** `PUT`
-- **Descripción:** Edita un Pokemon existente en la base de datos.
-
-### 🔍 Eliminar un pokemon existente
-
-- **URL:** `/pokemons/:id`
-- **Método:** `DELETE`
-- **Descripción:** Elimina un Pokemon existente en la base de datos.
-
-## Entrenadores
-
-### 🔍 Obtener entrenadores
-
-- **URL:** `/trainers`
-- **Método:** `GET`
-- **Descripción:** Devuelve una lista de todos los entreandores disponibles.
-
-### 🔍 Obtener entrenador por id
-
-- **URL:** `/trainers/id/:id`
-- **Método:** `GET`
-- **Descripción:** Devuelve el entrenador correspondiente al id facilitado.
-
-### 🔍 Incluir un entrenador nuevo
-
-- **URL:** `/trainers`
+- **URL:** `/login`
 - **Método:** `POST`
-- **Descripción:** Genera un nuevo entrenador en la base de datos.
+- **Acceso:** no logado
+- **Descripción:** Permite identificarse.
 
-### 🔍 Editar un entrenador existente
+### 🔍 Obtener usuarios
 
-- **URL:** `/trainers/:id`
+- **URL:** `/users`
+- **Método:** `GET`
+- **Acceso:** logado
+- **Descripción:** Devuelve una lista de todos los usuarios disponibles.
+
+### 🔍 Obtener usuario por id
+
+- **URL:** `/users/id`
+- **Método:** `GET`
+- **Acceso:** logado
+- **Descripción:** Devuelve el usuario al que corresponde el id.
+
+### 🔍 Editar usuario
+
+- **URL:** `/users/id`
 - **Método:** `PUT`
-- **Descripción:** Edita un entrenador existente en la base de datos.
+- **Acceso:** admin
+- **Descripción:** Edita información de un usuario.
 
-### 🔍 Eliminar un entrenador existente
+### 🔍 Eliminar usuario
 
-- **URL:** `/trainers/:id`
+- **URL:** `/users/id`
 - **Método:** `DELETE`
-- **Descripción:** Elimina un entrenador existente en la base de datos.
+- **Acceso:** admin
+- **Descripción:** Elimina la información de un usuario.
+
+## Clases
+
+### 🔍 Obtener clases
+
+- **URL:** `/classes`
+- **Método:** `GET`
+- **Acceso:** logado
+- **Descripción:** Devuelve una lista de todas las clases disponibles.
+
+### 🔍 Obtener clase por id
+
+- **URL:** `/classes/id`
+- **Método:** `GET`
+- **Acceso:** logado
+- **Descripción:** Devuelve la clase a la que corresponde el id.
+
+### 🔍 Editar clase
+
+- **URL:** `/classes/id`
+- **Método:** `PUT`
+- **Acceso:** admin
+- **Descripción:** Edita información de una clase.
+
+### 🔍 Eliminar clase
+
+- **URL:** `/classes/id`
+- **Método:** `DELETE`
+- **Acceso:** admin
+- **Descripción:** Elimina la información de una clase.
+
+## Asignaturas
+
+### 🔍 Obtener asignaturas
+
+- **URL:** `/subjects`
+- **Método:** `GET`
+- **Acceso:** logado
+- **Descripción:** Devuelve una lista de todas las asignaturas disponibles.
+
+### 🔍 Obtener asignatura por id
+
+- **URL:** `/subjects/id`
+- **Método:** `GET`
+- **Acceso:** logado
+- **Descripción:** Devuelve la asignatura a la que corresponde el id.
+
+### 🔍 Editar asignatura
+
+- **URL:** `/subjects/id`
+- **Método:** `PUT`
+- **Acceso:** admin
+- **Descripción:** Edita información de una asignatura.
+
+### 🔍 Eliminar asignatura
+
+- **URL:** `/subjects/id`
+- **Método:** `DELETE`
+- **Acceso:** admin
+- **Descripción:** Elimina la información de una asignatura.

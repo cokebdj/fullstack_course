@@ -2,7 +2,7 @@ const Subject = require('../models/subjects')
 
 const getSubjects = async (req, res, next) => {
   try {
-    const subjects = await Subject.find().populate('pokemons')
+    const subjects = await Subject.find()
     return res.status(200).json(subjects)
   } catch (error) {
     return res.status(400).json('Error en la solicitud')
@@ -12,7 +12,7 @@ const getSubjects = async (req, res, next) => {
 const getSubjectById = async (req, res, next) => {
   try {
     const { id } = req.params
-    const subject = await Subject.findById(id).populate('pokemons')
+    const subject = await Subject.findById(id)
     return res.status(200).json(subject)
   } catch (error) {
     return res.status(400).json('Error en la solicitud')
@@ -32,15 +32,12 @@ const postSubject = async (req, res, next) => {
 const putSubject = async (req, res, next) => {
   try {
     const { id } = req.params
-    const oldSubject = await Subject.findById(id)
     const newSubject = new Subject(req.body)
     newSubject._id = id
-    const pokemonWithDuplicates = [...oldSubject.pokemons, ...req.body.pokemons]
-    newSubject.pokemons = [...new Set(pokemonWithDuplicates)]
-    const subjectUpdated = await Subject.findByIdAndUpdate(id, newSubject, {
+    const SubjectUpdated = await Subject.findByIdAndUpdate(id, newClass, {
       new: true
     })
-    return res.status(200).json(subjectUpdated)
+    return res.status(200).json(SubjectUpdated)
   } catch (error) {
     return res.status(400).json('Error en la solicitud')
   }

@@ -1,3 +1,4 @@
+const { isAuth, isAdmin } = require('../../middlewares/auth')
 const {
   getSubjects,
   getSubjectById,
@@ -8,10 +9,10 @@ const {
 
 const subjectsRouter = require('express').Router()
 
-subjectsRouter.get('/:id', getSubjectById)
-subjectsRouter.get('/', getSubjects)
-subjectsRouter.post('/', postSubject)
-subjectsRouter.put('/:id', putSubject)
-subjectsRouter.delete('/:id', deleteSubject)
+subjectsRouter.get('/:id', [isAuth], getSubjectById)
+subjectsRouter.get('/', [isAuth], getSubjects)
+subjectsRouter.post('/', [isAdmin], postSubject)
+subjectsRouter.put('/:id', [isAdmin], putSubject)
+subjectsRouter.delete('/:id', [isAdmin], deleteSubject)
 
 module.exports = subjectsRouter
