@@ -1,7 +1,7 @@
 const students = [
   {
     name: 'Izuku Midoriya',
-    img: 'https://res.cloudinary.com/di79f5oba/image/upload/v1754850159/api_files_course/pp8lvp3uofgdwbtk5l6i.webp',
+    img: 'https://res.cloudinary.com/di79f5oba/image/upload/v1754854533/api_files_course/ffoijxdkk0d5rbbmj2va.webp',
     skill: 'One For All'
   },
   {

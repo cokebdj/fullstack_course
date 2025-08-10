@@ -1,109 +1,57 @@
 # 📡 API Colegio
 
-Esta API permite acceder a una base de datos de usuarios, clases y asignaturas
+Esta API permite acceder a una base de datos de estudiantes y profesores de My Hero Academy.
 
 ## 📋 Endpoints
 
-## Usuarios
+## Estudiantes
 
-### Registro
+### 🔍 Crear estudiante
 
-- **URL:** `/register`
+- **URL:** `/students`
 - **Método:** `POST`
-- **Acceso:** no logado
-- **Descripción:** Permite crear un usuario.
+- **Descripción:** Crea un estudiante nuevo
 
-### Inicio de sesión
+### 🔍 Obtener estudiante
 
-- **URL:** `/login`
-- **Método:** `POST`
-- **Acceso:** no logado
-- **Descripción:** Permite identificarse.
-
-### 🔍 Obtener usuarios
-
-- **URL:** `/users`
+- **URL:** `/students`
 - **Método:** `GET`
-- **Acceso:** logado
-- **Descripción:** Devuelve una lista de todos los usuarios disponibles.
-
-### 🔍 Obtener usuario por id
-
-- **URL:** `/users/id`
-- **Método:** `GET`
-- **Acceso:** logado
-- **Descripción:** Devuelve el usuario al que corresponde el id.
+- **Descripción:** Devuelve una lista de todos los estudiantes disponibles.
 
 ### 🔍 Editar usuario
 
-- **URL:** `/users/id`
+- **URL:** `/students/id`
 - **Método:** `PUT`
-- **Acceso:** admin
-- **Descripción:** Edita información de un usuario.
+- **Descripción:** Edita información de un estudiante.
 
 ### 🔍 Eliminar usuario
 
-- **URL:** `/users/id`
+- **URL:** `/students/id`
 - **Método:** `DELETE`
-- **Acceso:** admin
-- **Descripción:** Elimina la información de un usuario.
+- **Descripción:** Elimina la información de un estudiante.
 
-## Clases
+## Profesores
 
-### 🔍 Obtener clases
+### 🔍 Crear profesor
 
-- **URL:** `/classes`
+- **URL:** `/teachers`
+- **Método:** `POST`
+- **Descripción:** Crea un estudiante nuevo
+
+### 🔍 Obtener profesores
+
+- **URL:** `/teachers`
 - **Método:** `GET`
-- **Acceso:** logado
-- **Descripción:** Devuelve una lista de todas las clases disponibles.
+- **Descripción:** Devuelve una lista de todos los profesores disponibles.
 
-### 🔍 Obtener clase por id
+### 🔍 Editar profesor
 
-- **URL:** `/classes/id`
-- **Método:** `GET`
-- **Acceso:** logado
-- **Descripción:** Devuelve la clase a la que corresponde el id.
-
-### 🔍 Editar clase
-
-- **URL:** `/classes/id`
+- **URL:** `/teachers/id`
 - **Método:** `PUT`
-- **Acceso:** admin
-- **Descripción:** Edita información de una clase.
+- **Descripción:** Edita información de un profesor.
 
-### 🔍 Eliminar clase
+### 🔍 Eliminar profesor
 
-- **URL:** `/classes/id`
+- **URL:** `/teachers/id`
 - **Método:** `DELETE`
-- **Acceso:** admin
-- **Descripción:** Elimina la información de una clase.
-
-## Asignaturas
-
-### 🔍 Obtener asignaturas
-
-- **URL:** `/subjects`
-- **Método:** `GET`
-- **Acceso:** logado
-- **Descripción:** Devuelve una lista de todas las asignaturas disponibles.
-
-### 🔍 Obtener asignatura por id
-
-- **URL:** `/subjects/id`
-- **Método:** `GET`
-- **Acceso:** logado
-- **Descripción:** Devuelve la asignatura a la que corresponde el id.
-
-### 🔍 Editar asignatura
-
-- **URL:** `/subjects/id`
-- **Método:** `PUT`
-- **Acceso:** admin
-- **Descripción:** Edita información de una asignatura.
-
-### 🔍 Eliminar asignatura
-
-- **URL:** `/subjects/id`
-- **Método:** `DELETE`
-- **Acceso:** admin
-- **Descripción:** Elimina la información de una asignatura.
+- **Descripción:** Elimina la información de un profesor.
